@@ -12,10 +12,7 @@ try {
 }
 
 const personSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
+  name: String,
   age: Number,
   favoriteFoods: [String],
 });
@@ -24,9 +21,9 @@ const Person = mongoose.model("Person", personSchema);
 
 const createAndSavePerson = (done) => {
   const person = new Person({
-    name: "John",
-    age: 20,
-    favoriteFoods: ["pizza", "burgers"],
+    name: "Jane",
+    age: 34,
+    favoriteFoods: ["noodles", "pizza"],
   });
 
   person.save((err, data) => {
