@@ -8,10 +8,21 @@ try {
   });
   console.log("MongoDB connected");
 } catch (error) {
-  console.log(error); 
+  console.log(error);
 }
 
+const personSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  age: Number,
+  favoriteFoods: [String],
+});
+
 let Person;
+
+Person = mongoose.model("Person", personSchema)
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
