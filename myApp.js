@@ -41,12 +41,12 @@ const arrayOfPeople = [
   {
     name: "Mary",
     age: 28,
-    favoriteFoods: ["noodles", "pizza"],
+    favoriteFoods: ["burrito", "pizza"],
   },
   {
     name: "Jane",
     age: 34,
-    favoriteFoods: ["noodles", "pizza"],
+    favoriteFoods: ["burrito", "pizza"],
   },
 ];
 
@@ -115,10 +115,10 @@ const removeManyPeople = (done) => {
 
 const queryChain = (done) => {
   const foodToSearch = "burrito";
-  const query = Person.find({ favoriteFoods: foodToSearch })
-    .sort({ name: -1 })
+  Person.find({ favoriteFoods: foodToSearch })
+    .sort({ name: 1 })
     .limit(2)
-    .select({ name: 1, age: 0 })
+    .select({ age: 0 })
     .exec((err, data) => {
       if (err) return console.error(err);
       done(null, data);
